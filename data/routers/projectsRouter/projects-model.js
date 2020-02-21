@@ -22,6 +22,7 @@ function addProject(project){
     .insert(project, "id");
 }
 
-function addResource(projectId, resourceId){
+function addResource(resourceIndex){
   return db('project_resource')
+    .insert(resourceIndex, "id")
 }

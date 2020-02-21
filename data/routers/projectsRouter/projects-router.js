@@ -42,6 +42,18 @@ router.post('/', (req, res) => {
   });
 });
 
+router.post('/resource', (req, res) => {
+  const projectResourceData = req.body;
+
+  projects.addResource(projectResourceData)
+  .then(project => {
+    res.status(201).json(project);
+  })
+  .catch (err => {
+    res.status(500).json({ message: 'Failed to create new project' });
+  });
+});
+
 router.put('/:id', (req, res) => {
   const { id } = req.params;
   const changes = req.body;
